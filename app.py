@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from filters import applyFilters
@@ -18,6 +18,10 @@ CORS(app)
 def hello_world():
    return jsonify({"resp": "server is running!"})
 
+#@app.route('/assets/<path:path>')
+#def serve_files(path):
+#    return send_from_directory('assets/', path)
+
 #AddFormData
 @app.route('/predict', methods=['POST'])
 # @cross_origin()
@@ -29,17 +33,17 @@ def registerMissingReq():
         image.save('static/' + filename)
         data = applyFilters('./static/'+filename)
         fileNames = {
+	    "status": "success",
             "original": filename,
-            "laplacian": data[0],
-            "sobelx": data[1],
-            "sobely": data[2],
-            "edges": data[3],
-            "gray": data[4],
-            "binary": data[5]
+            "sobelx": data[0],
+            "sobely": data[1],
+            "edges": data[2],
+            "gray": data[3],
+            "binary": data[4]
         }
         return fileNames
     else:
-        return status
+        return {"status": status}
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port='3000')
