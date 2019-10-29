@@ -15,7 +15,12 @@ CORS(app)
 
 #server route working
 @app.route('/')
-def hello_world():
+def index():
+   return jsonify({"resp": "server is up and running!"})
+
+
+@app.route('/test')
+def test():
    return jsonify({"resp": "server is up and running!"})
 
 #@app.route('/assets/<path:path>')
