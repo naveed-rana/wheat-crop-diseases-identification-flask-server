@@ -44,7 +44,9 @@ def registerMissingReq():
             "sobely": data[1],
             "edges": data[2],
             "gray": data[3],
-            "binary": data[4]
+            "binary": data[4],
+            "hsi" : data[5],
+            "embosse" : data[6]
         }
         return fileNames
     else:

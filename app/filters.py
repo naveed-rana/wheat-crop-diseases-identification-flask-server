@@ -62,7 +62,7 @@ def applyFilters(IMG_PATH):
     cv2.imwrite(directory + "edges_" + imgName, edges)
     cv2.imwrite(directory + "gray_" + imgName, gray)
     cv2.imwrite(directory + "binary_" + imgName, im_bw)
-    cv2.imwrite(directory + "hsv_" + imgName, img_hsv)
+    cv2.imwrite(directory + "hsi_" + imgName, img_hsv)
 
     return ["sobelx_" + imgName, "sobely_" + imgName, "edges_" + imgName,
-                "gray_" + imgName, "binary_" + imgName, "hsv_" + imgName, "embose_" + imgName]
+                "gray_" + imgName, "binary_" + imgName, "hsi_" + imgName, "embose_" + imgName]
