@@ -21,7 +21,7 @@ def index():
 
 @app.route('/test')
 def test():
-   return jsonify({"resp": "server is up and running!"})
+   return jsonify({"resp": "server is up and running Emb!"})
 
 #@app.route('/assets/<path:path>')
 #def serve_files(path):
