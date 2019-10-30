@@ -39,7 +39,7 @@ def embose_img(imgPath):
     # you must convert back to uint8 /before/ converting to an image
     img2 = Image.fromarray(a2.astype('uint8'))
     imgName = imgPath.split("/")[-1] 
-    img2.save(directory + imgName)
+    img2.save(directory + "embose_" + imgName)
 
 def applyFilters(IMG_PATH):
     img = cv2.imread(IMG_PATH)
@@ -66,3 +66,4 @@ def applyFilters(IMG_PATH):
 
     return ["sobelx_" + imgName, "sobely_" + imgName, "edges_" + imgName,
                 "gray_" + imgName, "binary_" + imgName, "hsi_" + imgName, "embose_" + imgName]
+

@@ -3,7 +3,7 @@ from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from filters import applyFilters
 from PIL import Image
-
+import random
 
 #Flask App Structure
 app = Flask(__name__)
@@ -27,6 +27,9 @@ def test():
 #def serve_files(path):
 #    return send_from_directory('assets/', path)
 
+
+diseaseData = ["Leaf rust", "Yellow spot", "Eye Spot", "Narrow Spot", "Ring Spot"]
+
 #AddFormData
 @app.route('/predict', methods=['POST'])
 # @cross_origin()
@@ -46,7 +49,8 @@ def registerMissingReq():
             "gray": data[3],
             "binary": data[4],
             "hsi" : data[5],
-            "embosse" : data[6]
+            "embosse" : data[6],
+            "disease" : diseaseData[random.randint(0,4)]
         }
         return fileNames
     else:
